@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "SigRid - Redefining Smoking Cessation",
   description: "SigRid offers innovative nicotine replacement therapy solutions to help you quit smoking for good.",
   icons: {
-    icon: "/TabIcon.png", // this points to your image in public/
+    icon: "/ProductPic.png", 
   },
 }
 
