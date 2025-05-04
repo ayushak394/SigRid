@@ -63,6 +63,12 @@ export default function ContactForm() {
     }
   };
 
+  const handleAutoResize = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const textarea = e.target;
+    textarea.style.height = "auto";
+    textarea.style.height = `${textarea.scrollHeight}px`;
+  };
+
   return (
     <>
       <form onSubmit={handleSubmit} className="space-y-6">
@@ -133,10 +139,15 @@ export default function ContactForm() {
           <div className="relative">
             <textarea
               id="message"
-              rows={5}
               value={formData.message}
               onChange={handleChange}
               required
+              rows={1}
+              style={{
+                height: "150px",
+                resize: "none",
+                overflowY: "auto",
+              }}
               className="w-full px-4 py-3 bg-slate-50/80 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 shadow-sm"
             ></textarea>
             <MessageCircle className="absolute right-4 top-6 text-slate-400 h-4 w-4" />
@@ -162,6 +173,16 @@ export default function ContactForm() {
       >
         {successMessage}
       </div>
+
+      <style jsx>{`
+        textarea::-webkit-scrollbar {
+          width: 0px;
+        }
+
+        textarea {
+          scrollbar-width: none;
+        }
+      `}</style>
     </>
   );
 }
