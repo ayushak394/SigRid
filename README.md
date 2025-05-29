@@ -1,4 +1,4 @@
-# 🚭 Sigrid: Quit Smoking Assistance Landing Page
+# 🚭 Sigrid: Quit Smoking For Good
 
 [![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=white)](https://reactjs.org/)
 [![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat&logo=vite&logoColor=white)](https://vitejs.dev/)
