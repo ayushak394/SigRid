@@ -10,11 +10,10 @@ SigRid is a sleek, modern, and responsive landing page built for a client to pro
 
 ## 🚀 Features
 
-- 🧘‍♂️ Promotes a product designed to help users quit smoking
-- ⚡ Built with React and lightning-fast Vite**
-- 🎨 Fully styled using Tailwind CSS for scalable UI
-- 🧩 Modular and reusable component structure
-- 📱 Optimized for all screen sizes (mobile-first design)
+- ⚡ Blazing-fast performance using Vite
+- 📱 Fully responsive design across all screen sizes
+- 🔐 HTTPS-secured deployment with GoDaddy domain
+- 🧩 Clean, modular React component architecture
 
 ## 🧰 Tech Stack
 
