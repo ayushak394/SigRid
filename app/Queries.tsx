@@ -30,10 +30,27 @@ export default function ContactForm() {
     setSuccessMessage("Sending...");
     setIsVisible(true);
 
+    const now = new Date();
+    const formattedTime = now
+      .toLocaleString("en-GB", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true,
+      })
+      .replace(",", "");
+
+    const dataToSend = {
+      ...formData,
+      timestamp: formattedTime,
+    };
+
     try {
       await fetch(url, {
         method: "POST",
-        body: JSON.stringify(formData),
+        body: JSON.stringify(dataToSend),
         headers: {
           "Content-Type": "application/json",
         },
