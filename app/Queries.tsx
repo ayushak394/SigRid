@@ -105,39 +105,41 @@ export default function ContactForm() {
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {[
-            {
-              id: "name",
-              label: "Your Name",
-              type: "text",
-              Icon: User,
-            },
-            {
-              id: "email",
-              label: "Your Email",
-              type: "email",
-              Icon: Mail,
-            },
-          ].map(({ id, label, type, Icon }) => (
-            <div key={id} className="space-y-2">
-              <label
-                htmlFor={id}
-                className="text-sm font-medium text-slate-700 block"
-              >
-                {label}
-              </label>
-              <div className="relative">
-                <input
-                  id={id}
-                  type={type}
-                  value={formData[id as keyof typeof formData]}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 bg-slate-50/80 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 shadow-sm"
-                />
-                <Icon className="absolute right-4 top-1/2 transform -translate-y-1/2 text-slate-400 h-4 w-4" />
-              </div>
-            </div>
-          ))}
+  {
+    id: "name",
+    label: "Your Name",
+    type: "text",
+    Icon: User,
+    required: true, // make only name required
+  },
+  {
+    id: "email",
+    label: "Your Email",
+    type: "email",
+    Icon: Mail,
+    required: false, // email is optional
+  },
+].map(({ id, label, type, Icon, required }) => (
+  <div key={id} className="space-y-2">
+    <label
+      htmlFor={id}
+      className="text-sm font-medium text-slate-700 block"
+    >
+      {label}
+    </label>
+    <div className="relative">
+      <input
+        id={id}
+        type={type}
+        value={formData[id as keyof typeof formData]}
+        onChange={handleChange}
+        required={required} 
+        className="w-full px-4 py-3 bg-slate-50/80 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 shadow-sm"
+      />
+      <Icon className="absolute right-4 top-1/2 transform -translate-y-1/2 text-slate-400 h-4 w-4" />
+    </div>
+  </div>
+))}
         </div>
 
         <div className="space-y-2">
