@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { User, Mail, Info, MessageCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import emailjs from "@emailjs/browser";
 const url = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL;
 
 export default function ContactForm() {
@@ -56,6 +57,19 @@ export default function ContactForm() {
         },
         mode: "no-cors",
       });
+
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+          timestamp: formattedTime,
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      );
 
       setFormData({ name: "", email: "", phone: "", message: "" });
 
